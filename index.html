@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paralaxx HTML + CSS + JS</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
+    * { padding:0; margin: 0; font-family:'Roboto', sans-serif; color:#ffffff; }
+    html { scroll-behavior: smooth; }
+    .parallax-item { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:40px; }
+    .parallax-item h2 { font-size:32px; text-transform:uppercase; }
+    .parallax-item p { font-size:28px; }
+    .parallax-item cite { font-size:20px; opacity:0.8; }
+    .parallax-item:first-child { background:url("https://images4.alphacoders.com/122/1229876.jpg") center center no-repeat; background-size:cover; }
+    .parallax-item:nth-child(2) { background: #9b59b6; }
+    .parallax-item:nth-child(3) { background:url("https://media.tenor.com/siP_CAQhal8AAAAd/matue-vem-chapar.gif") center center no-repeat; background-size:cover; background-position:center; background-attachment:fixed; min-height:600px; }
+    .parallax-item:nth-child(4) { background:#be2edd; }
+</style>
+</head>
+<body>
+    <main>
+        <div id="parallax" class="parallax-item">
+            <h2 class="efeito-digitacao">Paralaxx HTML + CSS + JS</h2>
+        </div>
+        <div class="parallax-item">
+            <p>O efeito parallax tem como base uma ilusão de ótica, pois dá a impressão ao olho humano de que objetos ou pessoas estão em movimento, mais perto ou afastados. Assim, esse recurso de webdesign causa a sensação de que imagens distantes se movimentam mais devagar do que os objetos que estão próximos. <cite>Fonte: https://rockcontent.com/</cite></p>
+        </div>
+        <div class="parallax-item">
+            <p>Parallax, na física, é entendido como o deslocamento aparente de um objeto aos olhos de um observador. De forma visual, é como se observássemos no dia a dia um veículo em movimento. Os webdesigners reproduzem esse efeito cotidiano com movimentos de parallax que aperfeiçoam o design do site. Fonte: <cite>https://rockcontent.com/</cite></p>
+        </div>
+        <div class="parallax-item">
+            <p>Esse é um efeito visual bastante bonito e incentiva a interação do visitante do site. Seu uso é feito por meio de animação, parallax e rolagem paralela, permitindo que o usuário viaje abaixo da dobra do site, o que reduz as taxas de rejeição. <cite>Fonte: https://rockcontent.com/</cite></p>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+
+        // essencial
+        const parallax = document.getElementById("parallax");
+        window.addEventListener("scroll", function () {
+            let offset = window.pageYOffset;
+            parallax.style.backgroundPositionY = offset * 0.7 + "px";
+        });
+
+        // perfumaria
+        function DigitarTitulo(elemento){
+            const textoArray = elemento.innerHTML.split('');
+            elemento.innerHTML = ' ';
+            textoArray.forEach(function(letra, i){   
+            setTimeout(function(){ elemento.innerHTML += letra; }, 120 * i)});
+        }
+            
+        const titulo = document.querySelector('.efeito-digitacao');
+        DigitarTitulo(titulo);
+    </script>
+</body>
+</html>
